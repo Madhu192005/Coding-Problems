@@ -1,0 +1,33 @@
+public class ProductSmallestPair {
+
+    public static int productSmallestPair(int[] arr, int sum) {
+
+        if (arr.length < 2) return 0;
+
+        int min1 = Integer.MAX_VALUE;
+        int min2 = Integer.MAX_VALUE;
+
+        // find two smallest numbers
+        for (int num : arr) {
+            if (num < min1) {
+                min2 = min1;
+                min1 = num;
+            } else if (num < min2) {
+                min2 = num;
+            }
+        }
+
+        // check condition
+        if (min1 + min2 < sum) {
+            return min1 * min2;
+        }
+
+        return 0;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {9, 8, 3, -7, 3, 9};
+        int sum = 4;
+        System.out.println(productSmallestPair(arr, sum)); // -21
+    }
+}
