@@ -1,0 +1,46 @@
+class Stack {
+    int[] arr;
+    int top;
+    int capacity;
+
+    // Constructor
+    Stack(int size) {
+        capacity = size;
+        arr = new int[capacity];
+        top = -1;
+    }
+
+    // Push operation
+    void push(int x) {
+        if (isFull()) {
+            System.out.println("Stack Overflow");
+            return;
+        }
+        arr[++top] = x;
+    }
+
+    // Pop operation
+    int pop() {
+        if (isEmpty()) {
+            System.out.println("Stack Underflow");
+            return -1;
+        }
+        return arr[top--];
+    }
+
+    // Peek operation
+    int peek() {
+        if (isEmpty()) return -1;
+        return arr[top];
+    }
+
+    // Check empty
+    boolean isEmpty() {
+        return top == -1;
+    }
+
+    // Check full
+    boolean isFull() {
+        return top == capacity - 1;
+    }
+}
