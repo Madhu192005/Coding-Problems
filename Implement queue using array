@@ -1,0 +1,40 @@
+class Queue {
+    int[] arr;
+    int front, rear, capacity;
+
+    Queue(int size) {
+        capacity = size;
+        arr = new int[capacity];
+        front = 0;
+        rear = -1;
+    }
+
+    void enqueue(int x) {
+        if (isFull()) {
+            System.out.println("Queue Overflow");
+            return;
+        }
+        arr[++rear] = x;
+    }
+
+    int dequeue() {
+        if (isEmpty()) {
+            System.out.println("Queue Underflow");
+            return -1;
+        }
+        return arr[front++];
+    }
+
+    int peek() {
+        if (isEmpty()) return -1;
+        return arr[front];
+    }
+
+    boolean isEmpty() {
+        return front > rear;
+    }
+
+    boolean isFull() {
+        return rear == capacity - 1;
+    }
+}
