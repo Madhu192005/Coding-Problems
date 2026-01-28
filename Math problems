@@ -1,0 +1,156 @@
+//1.Sum of digits
+int n = 538;
+int sum = 0;
+while (n > 0) {
+    sum += n % 10;
+    n /= 10;
+}
+System.out.println(sum); // 16
+
+//2.Factorial
+int n = 5;
+int fact = 1;
+for (int i = 1; i <= n; i++) {
+    fact *= i;
+}
+System.out.println(fact);
+
+//3.Fibonacci
+int n = 7;
+int a = 0, b = 1;
+for (int i = 1; i <= n; i++) {
+    System.out.print(a + " ");
+    int c = a + b;
+    a = b;
+    b = c;
+}
+
+//4.GCD
+int a = 36, b = 60;
+while (b != 0) {
+    int temp = b;
+    b = a % b;
+    a = temp;
+}
+System.out.println(a); // GCD
+}
+//LCM
+int a = 36, b = 60;
+int x = a, y = b;
+
+// find GCD
+while (y != 0) {
+    int temp = y;
+    y = x % y;
+    x = temp;
+}
+int gcd = x;
+int lcm = (a * b) / gcd;
+System.out.println(lcm);
+
+//5.Palindrome
+int n = 121;
+int original = n;
+int rev = 0;
+while (n > 0) {
+    int digit = n % 10;
+    rev = rev * 10 + digit;
+    n /= 10;
+}
+if (rev == original)
+    System.out.println("Palindrome");
+else
+    System.out.println("Not Palindrome");
+}
+
+//6.Power of n
+int a = 2, n = 3;
+int result = 1;
+for (int i = 1; i <= n; i++) {
+    result *= a;
+}
+System.out.println(result);
+}
+
+//7.Perfect number
+int n = 28;
+int sum = 0;
+for (int i = 1; i <= n / 2; i++) {
+    if (n % i == 0) {
+        sum += i;
+    }
+}
+if (sum == n && n != 0)
+    System.out.println("Perfect Number");
+else
+    System.out.println("Not Perfect Number");
+}
+
+//8.Prime number
+int n = 29;
+boolean isPrime = true;
+if (n <= 1) {
+    isPrime = false;
+} else {
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) {
+            isPrime = false;
+            break;
+        }
+    }
+}
+System.out.println(isPrime ? "Prime" : "Not Prime");
+}
+
+//9.Armstrong
+int n = 153;
+int temp = n;
+int digits = 0;
+
+// count digits
+while (temp > 0) {
+    digits++;
+    temp /= 10;
+}
+
+temp = n;
+int sum = 0;
+
+// calculate power manually
+while (temp > 0) {
+    int digit = temp % 10;
+    int power = 1;
+
+    for (int i = 1; i <= digits; i++) {
+        power *= digit;
+    }
+
+    sum += power;
+    temp /= 10;
+}
+
+if (sum == n)
+    System.out.println("Armstrong Number");
+else
+    System.out.println("Not Armstrong");
+
+//10.Happy number
+int n = 19;
+int temp = n;
+while (temp != 1 && temp != 4) {
+    int sum = 0;
+    while (temp > 0) {
+        int digit = temp % 10;
+        sum += digit * digit;
+        temp /= 10;
+    }
+    temp = sum;
+}
+if (temp == 1)
+    System.out.println("Happy Number");
+else
+    System.out.println("Not Happy Number");
+}
+
+
+
