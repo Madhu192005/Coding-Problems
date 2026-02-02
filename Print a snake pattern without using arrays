@@ -1,0 +1,32 @@
+1   2   3   4
+8   7   6   5
+9  10  11  12
+16 15 14 13
+
+import java.util.*;
+public class SnakePattern {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int N=sc.nextInt();
+        int currentNumber=1;
+        for (int row=1;row<=N;row++){
+            if(row %2!=0){
+                // Odd row: print ascending
+                int start=currentNumber;
+                for (int col=0;col<N;col++){
+                    System.out.print(start+col+" ");
+                }
+                currentNumber+=N;
+            } else{
+                // Even row: print descending
+                int start=currentNumber+N-1;
+                for (int col=0;col<N;col++){
+                    System.out.print(start-col+" ");
+                }
+                currentNumber+= N;
+            }
+            System.out.println();
+        }
+        sc.close();
+    }
+}
