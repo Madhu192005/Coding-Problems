@@ -1,0 +1,40 @@
+class Solution {
+    public boolean findTriplets(int[] arr) {
+        Arrays.sort(arr);
+        // Step 2: Fix the first element one by one
+        // We run till length-2 because we need at least 3 elements
+        for (int i = 0; i < arr.length - 2; i++) {
+            // Step 3: Skip duplicate elements for the first number
+            // This avoids checking the same triplet multiple times
+            if (i>0 && arr[i] == arr[i - 1]) {
+                continue;
+            }
+            // Step 4: Initialize two pointers
+            // left pointer starts just after the fixed element
+            int left = i + 1;
+            // right pointer starts at the end of the array
+            int right = arr.length - 1;
+            // Step 5: Move pointers until they meet
+            while (left<right) {
+                // Step 6: Calculate the sum of three elements
+                int sum = arr[i] + arr[left] + arr[right];
+                // Step 7: If sum is zero, triplet found
+                if (sum == 0) {
+                    return true;   // No need to check further
+                }
+                // Step 8: If sum is less than zero,
+                // move left pointer to increase the sum
+                else if (sum < 0) {
+                    left++;
+                }
+                // Step 9: If sum is greater than zero,
+                // move right pointer to decrease the sum
+                else {
+                    right--;
+                }
+            }
+        }
+        // Step 10: No triplet with sum zero found
+        return false;
+    }
+}
