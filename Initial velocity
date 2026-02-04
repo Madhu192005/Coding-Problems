@@ -1,0 +1,21 @@
+import java.util.*;
+public class InitialVelocity {
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        // Input values
+        System.out.print("Enter final velocity (v): ");
+        double v = sc.nextDouble();
+        System.out.print("Enter acceleration (a): ");
+        double a = sc.nextDouble();
+        System.out.print("Enter time (t): ");
+        double t = sc.nextDouble();
+        // Calculate initial velocity
+        double u = v - (a * t);
+        // Output
+        System.out.println("Initial Velocity (u) = " + u + " m/s");
+        sc.close();
+    }
+}
+
+//use formula:
+Initial Velocity(u) : u=v-at
