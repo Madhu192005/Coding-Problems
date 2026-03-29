@@ -1,0 +1,12 @@
+int i=0;
+while(i<s.length()){
+char current=s.charAt(i);
+int count=0;
+while(i<s.length() && s.charAt(i)==current){
+count++;
+i++;
+}
+result.append(current).append(count);
+}
+return result.toString();
+}
